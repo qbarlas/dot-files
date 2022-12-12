@@ -1,0 +1,5 @@
+set runtimepath+=~/.config/vim,~/.config/vim/after
+set viminfo+=~/.config/viminfo
+:set nu
+:colorscheme dichromatic
+syntax enable

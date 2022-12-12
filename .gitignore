@@ -1,3 +1,6 @@
-.vscode
-.idea
-terraform.tfvars
+gcloud
+google-chrome
+configstore
+gh/config.yml
+zsh/histfile
+zsh/.zcompdump

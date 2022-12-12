@@ -1,9 +1,9 @@
 [core]
 	editor = vim
 	filemode = false
-	attributesfile = /home/quentin/.gitattributes
+	attributesfile = ~/.config/git/gitattributes
 	filemode = false
-	excludesFile = ~/.gitignore
+	excludesFile = ~/.config/git/gitignore
 	autocrlf = false
 	pager = less -F -X
 	
@@ -30,40 +30,47 @@
   sslverify = true
   
 [alias]
-  s = status -sb
-  ci = commit
-  cim = commit -m 
-  cis = commit -S
+  aa  = commit --amend --no-edit
   b = branch
   br = branch -r
+  ci = commit
+  cif  = commit --fixup
+  cim = commit -m 
+  cima = commit -a -m 
+  cis = commit -S
+  cleanup = "!git branch --merged | grep  -v '\\*\\|main\\|release' | xargs -n 1 -r git branch -d"
   co = checkout
   cob = checkout -b
+  cp  = cherry-pick
   d = diff
   dc = diff --cached
+  ign = ls-files -o -i --exclude-standard
   l = log -n 1 --pretty='format:%h %s' 
-  lg = log -p
   lb = log --first-parent --oneline --no-merges --decorate --pretty=format:'%C(yellow)%h%Creset%C(bold red)%d %Creset%s %Cgreen(%cr)%C(bold blue) <%an>%Creset' --abbrev-commit --date=relative
+  lg = log -p
   lol = log --graph --decorate --pretty=format:'%C(yellow)%h%Creset%C(bold red)%d %Creset%s %Cgreen(%cr)%C(bold blue) <%an>%Creset' --abbrev-commit --date=relative
   ls = ls-files
-  ign = ls-files -o -i --exclude-standard
-  ru = remote update
-  pulp = pull --prune
-  rbi = rebase -i --autosquash
-  rbc = rebase --continue
-  sha  = rev-parse --short HEAD
-  cif  = commit --fixup
-  aa  = commit --amend --no-edit
-  cp  = cherry-pick
   mb  = branch -m
+  pulp = "!git pull --prune && git cleanup"
+  rbc = rebase --continue
+  rbi = rebase -i --autosquash
+  ru = remote update
+  s = status -sb
+  setx = update-index --chmod=+x
+  sha  = rev-parse --short HEAD
 
-
-[user]
-	name = Quentin
-	signingkey = 705FBCBB33E49301
-	email = qbarlas@users.noreply.github.com
 [gpg]
 	program = gpg
+
 [commit]
 	gpgsign = true
+
 [remote "origin"]
 	prune = true
+
+[include]
+    path = ~/.config/git/gitconfig-user
+
+# For conditional configuration
+# [includeIf "gitdir:~/work/"]
+#     path = ~/.config/git/gitconfig-for-work
