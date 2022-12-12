@@ -1,9 +1,9 @@
 [core]
 	editor = vim
 	filemode = false
-	attributesfile = ~/.config/git/gitattributes
+	attributesfile = ~/.config/git/attributes
 	filemode = false
-	excludesFile = ~/.config/git/gitignore
+	excludesFile = ~/.config/git/ignore
 	autocrlf = false
 	pager = less -F -X
 	
@@ -69,7 +69,7 @@
 	prune = true
 
 [include]
-    path = ~/.config/git/gitconfig-user
+    path = ~/.config/git/config-user
 
 # For conditional configuration
 # [includeIf "gitdir:~/work/"]

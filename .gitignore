@@ -4,3 +4,5 @@ configstore
 gh/config.yml
 zsh/histfile
 zsh/.zcompdump
+zsh/.zsh_sessions
+vim/viminfo

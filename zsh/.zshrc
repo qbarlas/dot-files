@@ -65,7 +65,3 @@ alias groot=git rev-parse --show-toplevel
 
 FPATH+=:${ZDOTDIR}/zshfunctions
 
-autoload -Uz ssh-agent-config
-autoload -Uz start-dockerd
-
-ssh-agent-config
